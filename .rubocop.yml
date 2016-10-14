@@ -1,0 +1,27 @@
+Metrics/LineLength:
+  Max: 100
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 25
+
+Metrics/AbcSize:
+  Max: 25
+
+Style/Semicolon:
+  AllowAsExpressionSeparator: true
+
+Style/EachWithObject:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+Style/ExtraSpacing:
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 2.3

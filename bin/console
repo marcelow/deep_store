@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'deep_store'
+require 'irb'
+require 'pry'
+
+if File.exist?(File.expand_path('../../.env', __FILE__))
+  require 'dotenv'
+  Dotenv.load
+end
+
+IRB.start
