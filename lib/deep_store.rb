@@ -1,5 +1,3 @@
-require 'bundler/setup'
-
 require 'deep_store/version'
 require 'forwardable'
 require 'ostruct'
