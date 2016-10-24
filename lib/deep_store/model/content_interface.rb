@@ -5,7 +5,9 @@ module DeepStore
         base.class_eval do
           extend Forwardable
 
-          def_delegators :content, :read, :write, :rewind, :each, :puts, :close
+          attr_reader :sweeper
+
+          def_delegators :content, :read, :write, :rewind, :each, :puts, :close, :unlink
 
           def reload
             @content = nil
@@ -17,8 +19,12 @@ module DeepStore
           end
 
           def content=(stream)
-            ObjectSpace.define_finalizer(self, -> { stream.close })
             @content = stream
+            @sweeper = Sweeper.register(self, stream)
+          end
+
+          def finalize
+            sweeper&.finalize
           end
         end
       end
