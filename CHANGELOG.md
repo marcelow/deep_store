@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [Unreleased]
+## [0.2.0] 2016-10-24
 ### Added
 - DAO specs
 - Model#finalize method to manually clean model streams
