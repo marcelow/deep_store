@@ -14,6 +14,8 @@ module DeepStore
       adapter.head_object(bucket: bucket, key: key)
     rescue Aws::S3::Errors::NoSuchKey
       raise DeepStore::Errors::RecordNotFound
+    rescue Aws::S3::Errors::NotFound
+      raise DeepStore::Errors::RecordNotFound
     end
 
     def get(key)
@@ -21,6 +23,8 @@ module DeepStore
       object = adapter.get_object(bucket: bucket, key: key, response_target: stream)
       Result.new(object: object, stream: codec.decode(stream))
     rescue Aws::S3::Errors::NoSuchKey
+      raise DeepStore::Errors::RecordNotFound
+    rescue Aws::S3::Errors::NotFound
       raise DeepStore::Errors::RecordNotFound
     end
 

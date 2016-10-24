@@ -4,6 +4,7 @@ module DeepStore
     autoload :KeyFactory, File.expand_path('../model/key_factory', __FILE__)
     autoload :ContentInterface, File.expand_path('../model/content_interface', __FILE__)
     autoload :DSL, File.expand_path('../model/dsl', __FILE__)
+    autoload :Attributes, File.expand_path('../model/attributes', __FILE__)
 
     def self.included(base)
       base.extend(ClassMethods)
@@ -14,14 +15,7 @@ module DeepStore
         include ActiveModel::Validations
         include Persistence
         include ContentInterface
-
-        def initialize(data = {})
-          data.each { |k, v| send("#{k}=", v) }
-        end
-
-        def attributes
-          Hash[__schema__.keys.map { |k| [k, send(k)] }]
-        end
+        include Attributes
 
         private
 
