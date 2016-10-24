@@ -4,6 +4,7 @@ require 'ostruct'
 require 'aws-sdk'
 require 'active_model'
 require 'mime/types'
+require 'fileutils'
 
 module DeepStore
   autoload :Settings,       'deep_store/settings'
@@ -16,6 +17,7 @@ module DeepStore
   autoload :Codecs,         'deep_store/codecs'
   autoload :Operations,     'deep_store/operations'
   autoload :KeyParser,      'deep_store/key_parser'
+  autoload :Sweeper,        'deep_store/sweeper'
   autoload :Errors,         'deep_store/errors'
 
   def self.adapter
