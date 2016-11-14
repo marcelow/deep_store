@@ -20,6 +20,7 @@ module DeepStore
 
     def get(key)
       stream = Tempfile.new
+      stream.binmode
       object = adapter.get_object(bucket: bucket, key: key, response_target: stream)
       Result.new(object: object, stream: codec.decode(stream))
     rescue Aws::S3::Errors::NoSuchKey

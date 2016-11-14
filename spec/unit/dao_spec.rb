@@ -49,6 +49,7 @@ RSpec.describe DeepStore::DAO do
 
     before do
       allow(Tempfile).to receive(:new).and_return(stream)
+      allow(stream).to receive(:binmode)
     end
 
     context 'when the request succeeds' do
@@ -62,6 +63,11 @@ RSpec.describe DeepStore::DAO do
       end
 
       it { is_expected.to eq(result) }
+
+      it 'sets the accept stream to binary mode' do
+        expect(stream).to receive(:binmode)
+        subject
+      end
 
       it "executes a 'GET OBJECT' request" do
         expect(adapter).to receive(:get_object)

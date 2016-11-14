@@ -9,6 +9,7 @@ module DeepStore
 
       def decode(stream)
         decompressed_stream = Tempfile.new
+        decompressed_stream.binmode
 
         Zlib::GzipReader.open(stream) do |gz|
           while (chunk = gz.read(CHUNK_SIZE))
@@ -23,6 +24,7 @@ module DeepStore
 
       def encode(stream)
         compressed_stream = Tempfile.new
+        compressed_stream.binmode
 
         Zlib::GzipWriter.open(compressed_stream.path) do |gz|
           while (chunk = stream.read(CHUNK_SIZE))
