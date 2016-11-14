@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [0.2.2] 2016-11-14
+### Fixed
+- Gem version
+
 ## [0.2.1] 2016-11-14
 ### Fixed
 - Use binmode for internal streams
