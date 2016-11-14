@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [Unreleased] unreleased
+## [0.2.1] 2016-11-14
 ### Fixed
 - Use binmode for internal streams
 
