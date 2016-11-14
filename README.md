@@ -2,22 +2,19 @@
 
 DeepStore is a ODM-like solution to manage S3-backed data. It provides a familiar interface to perform basic operations on files stored in S3 and facilitates their manipulation by abstracting away its intricacies. It's an opinionated but extensible library that follows "convention over configuration" and attempts to maximize developer productivity at the expense of deeper control.
 
-## WARNING
-This is a **Beta** version. It works, but please keep that in mind and feel free to communicate any issues, suggestions or PRs ;-)
-
 # Configuration
 
 ```
 # /config/initializers/dd.rb
 DeepStore.configure do |c|
-  c.bucket = bucket # defaults to ENV['DEEP_DIVE_BUCKET']
+  c.bucket = bucket # defaults to ENV['DEEP_STORE_BUCKET']
   c.access_key_id = access_key_id # defaults to ENV['AWS_ACCESS_KEY_ID']
   c.secret_access_key = secret_access_key # defaults to ENV['AWS_SECRET_ACCESS_KEY']
   c.region = region # defaults to 'us-east-1' and fallback to ENV['AWS_REGION']
 end
 ```
 
-# How to Use
+# Usage
 
 ```ruby
 class Log
