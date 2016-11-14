@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [Unreleased] unreleased
+### Fixed
+- Use binmode for internal streams
+
+### Changed
+- Update README
+
 ## [0.2.0] 2016-10-24
 ### Added
 - DAO specs
